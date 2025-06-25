@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+
+
+    
     // --- 1. ЭФФЕКТ: Параллакс для фона ---
     const blobsContainer = document.querySelector('.background-blobs');
     if (blobsContainer) {

@@ -198,19 +198,21 @@ main, header, footer {
     to { transform: rotate(360deg); }
 }
 
-/* Секция "Контакты" */
+/* Секция "Контакты" - Улучшенные иконки */
 .social-icons a {
     color: var(--secondary-color);
     margin: 0 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: inline-block; /* Для корректной работы transform */
+    display: inline-block; /* Необходимо для transform */
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .social-icons a:hover {
     color: var(--primary-color);
-    transform: scale(1.2);
+    transform: translateY(-8px) scale(1.1); /* Эффект "подскока" */
 }
+
 .social-icons svg {
-    fill: currentColor; /* SVG будет наследовать цвет от родителя <a> */
+    fill: currentColor;
 }
 
 /* --- АНИМАЦИИ --- */
@@ -223,4 +225,75 @@ main, header, footer {
 .fade-in.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- 3. УЛУЧШЕННАЯ КАРТОЧКА БУДУЩЕГО ПРОЕКТА --- */
+.future-project-card-v2 {
+    overflow: hidden; /* Важно для градиента */
+    position: relative;
+    border: 1px solid transparent; /* Убираем пунктир */
+}
+
+/* Анимированный градиентный фон */
+.future-project-card-v2::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -1px; /* Чтобы граница была видна */
+    border-radius: inherit; /* Наследуем скругление */
+    background: linear-gradient(120deg, #4f46e5, #ec4899, #12121c, #12121c);
+    background-size: 300% 300%;
+    animation: gradient-animation 5s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Эффект "глитча" для текста */
+.glitch {
+    position: relative;
+    color: white;
+    font-size: 1.8rem; /* Увеличим размер для эффекта */
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text); /* Копируем текст из атрибута */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ec4899;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #4f46e5, 2px 2px #4f46e5;
+    clip: rect(85px, 450px, 90px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); } 10% { transform: skew(1deg); } 20% { transform: skew(-1deg); } 30% { transform: skew(0.5deg); } 40% { transform: skew(0deg); } 100% { transform: skew(0deg); }
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(42px, 9999px, 44px, 0); } 5% { clip: rect(69px, 9999px, 99px, 0); } 10% { clip: rect(3px, 9999px, 86px, 0); } 15% { clip: rect(61px, 9999px, 2px, 0); } 20% { clip: rect(36px, 9999px, 20px, 0); } 25% { clip: rect(43px, 9999px, 64px, 0); } 30% { clip: rect(7px, 9999px, 89px, 0); } 35% { clip: rect(40px, 9999px, 8px, 0); } 40% { clip: rect(33px, 9999px, 73px, 0); } 45% { clip: rect(74px, 9999px, 7px, 0); } 50% { clip: rect(79px, 9999px, 4px, 0); } 55% { clip: rect(34px, 9999px, 91px, 0); } 60% { clip: rect(43px, 9999px, 1px, 0); } 65% { clip: rect(66px, 9999px, 61px, 0); } 70% { clip: rect(84px, 9999px, 95px, 0); } 75% { clip: rect(31px, 9999px, 76px, 0); } 80% { clip: rect(21px, 9999px, 8px, 0); } 85% { clip: rect(88px, 9999px, 93px, 0); } 90% { clip: rect(10px, 9999px, 94px, 0); } 95% { clip: rect(3px, 9999px, 11px, 0); } 100% { clip: rect(17px, 9999px, 63px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(6px, 9999px, 99px, 0); } 5% { clip: rect(81px, 9999px, 57px, 0); } 10% { clip: rect(43px, 9999px, 35px, 0); } 15% { clip: rect(29px, 9999px, 1px, 0); } 20% { clip: rect(66px, 9999px, 10px, 0); } 25% { clip: rect(39px, 9999px, 73px, 0); } 30% { clip: rect(11px, 9999px, 60px, 0); } 35% { clip: rect(80px, 9999px, 5px, 0); } 40% { clip: rect(45px, 9999px, 33px, 0); } 45% { clip: rect(2px, 9999px, 86px, 0); } 50% { clip: rect(4px, 9999px, 50px, 0); } 55% { clip: rect(60px, 9999px, 45px, 0); } 60% { clip: rect(93px, 9999px, 86px, 0); } 65% { clip: rect(2px, 9999px, 22px, 0); } 70% { clip: rect(69px, 9999px, 84px, 0); } 75% { clip: rect(48px, 9999px, 7px, 0); } 80% { clip: rect(3px, 9999px, 73px, 0); } 85% { clip: rect(44px, 9999px, 53px, 0); } 90% { clip: rect(1px, 9999px, 20px, 0); } 95% { clip: rect(48px, 9999px, 39px, 0); } 100% { clip: rect(8px, 9999px, 62px, 0); }
 }
