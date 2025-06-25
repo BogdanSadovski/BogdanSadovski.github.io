@@ -1,0 +1,316 @@
+/* --- Основные настройки и Glassmorphism --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root {
+    --bg-color: #0d0c1d;
+    --text-color: #f0f0f0;
+    --secondary-text-color: #a3a2b7;
+    --accent-gradient: linear-gradient(90deg, #3d52f1, #9452f1);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden; /* Обязательно для фона */
+    position: relative; /* Для позиционирования псевдоэлементов */
+}
+
+/* --- Анимированный фон "Liquid" с помощью псевдоэлементов --- */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -1; /* Помещаем фон за весь контент */
+    filter: blur(120px);
+    opacity: 0.4;
+}
+
+body::before {
+    width: 450px;
+    height: 450px;
+    background: #4a3891;
+    animation: move-blob1 25s infinite alternate;
+}
+
+body::after {
+    width: 350px;
+    height: 350px;
+    background: #3b749a;
+    animation: move-blob2 30s infinite alternate-reverse;
+}
+
+@keyframes move-blob1 {
+    from { transform: translate(-60%, -60%) rotate(0deg); }
+    to { transform: translate(-40%, -40%) rotate(180deg); }
+}
+
+@keyframes move-blob2 {
+    from { transform: translate(60%, 60%) rotate(0deg); }
+    to { transform: translate(40%, 40%) rotate(-180deg); }
+}
+
+
+/* --- Общие стили для контейнера и ссылок --- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 3rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--text-color);
+}
+
+/* --- Стилизация существующих секций под "стекло" --- */
+.project-hero,
+.project-section {
+    background: rgba(26, 25, 43, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-hero:hover,
+.project-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Типография --- */
+.project-hero {
+    text-align: center;
+}
+
+.project-hero .logo {
+    max-width: 120px;
+    margin-bottom: 1.5rem;
+}
+
+.project-hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.project-hero .tagline {
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+}
+
+.project-section h2 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.project-section ul li::before {
+    content: '✦';
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2rem;
+}
+
+/* --- Стилизация тегов и галереи --- */
+/* ==================================================== */
+/* === НОВЫЕ СТИЛИ ДЛЯ ТЕКСТОВОГО СТЕКА ТЕХНОЛОГИЙ === */
+/* ==================================================== */
+
+/* Контейнер для тегов */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+/* Сам тег технологии */
+.tech-tag {
+    /* Градиентная рамка - основной эффект */
+    border: 1px solid transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 
+                      var(--accent-gradient); /* Градиент для рамки */
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    
+    /* Стили фона и текста */
+    background-color: rgba(26, 25, 43, 0.7); /* Фон чуть темнее, чтобы рамка выделялась */
+    color: var(--secondary-text-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px; /* Делаем их похожими на "капсулы" */
+    
+    font-size: 0.9rem;
+    font-weight: 500;
+    
+    position: relative;
+    z-index: 1;
+    
+    /* Анимация перехода */
+    transition: color 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Эффект при наведении */
+.tech-tag:hover {
+    color: #fff; /* Делаем текст абсолютно белым и ярким */
+    transform: translateY(-5px); /* Легкий "подскок" */
+}
+
+/* Создаем псевдоэлемент для анимированного фона при наведении */
+.tech-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    background: var(--accent-gradient); /* Фон из нашего градиента */
+    border-radius: 30px;
+    
+    opacity: 0; /* Изначально фон невидим */
+    z-index: -1;
+    
+    transition: opacity 0.4s ease;
+}
+
+.tech-tag:hover::before {
+    opacity: 1; /* Показываем градиентный фон при наведении */
+}
+
+
+/* --- Анимация "Каскадное появление" для тегов --- */
+.project-section.is-visible .tech-tag {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Задаем задержку для каждого тега, чтобы они появлялись один за другим */
+.project-section.is-visible .tech-tag:nth-child(1) { animation-delay: 0.1s; }
+.project-section.is-visible .tech-tag:nth-child(2) { animation-delay: 0.15s; }
+.project-section.is-visible .tech-tag:nth-child(3) { animation-delay: 0.2s; }
+.project-section.is-visible .tech-tag:nth-child(4) { animation-delay: 0.25s; }
+.project-section.is-visible .tech-tag:nth-child(5) { animation-delay: 0.3s; }
+.project-section.is-visible .tech-tag:nth-child(6) { animation-delay: 0.35s; }
+.project-section.is-visible .tech-tag:nth-child(7) { animation-delay: 0.4s; }
+/* ... можно продолжить для большего количества тегов */
+
+.gallery-grid img {
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Стилизация кнопок --- */
+.btn.primary {
+    background: var(--accent-gradient);
+    color: var(--text-color);
+    box-shadow: 0 4px 15px rgba(127, 82, 240, 0.4);
+    border: none;
+    padding: 14px 35px;
+    border-radius: 10px;
+}
+
+.btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(127, 82, 240, 0.5);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--secondary-text-color);
+    border: 1px solid var(--border-color);
+    padding: 13px 34px;
+    border-radius: 10px;
+}
+
+.btn.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Стили для JS анимации появления при скролле --- */
+header.project-hero,
+section.project-section,
+.project-links {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+header.project-hero.is-visible,
+section.project-section.is-visible,
+.project-links.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Дополнительные исправления для изображений --- */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-grid img {
+    width: 100%; /* Заставляет картинку занимать всю ширину контейнера-ячейки */
+    height: auto; /* Сохраняет пропорции картинки */
+    object-fit: cover; /* Гарантирует, что картинка покроет ячейку, даже если пропорции не совпадают */
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
