@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+<rect width="800" height="500" fill="#0b0e0a"/>
+<rect x="0" y="0" width="800" height="56" fill="#10140e"/>
+<circle cx="28" cy="28" r="7" fill="#dfff57"/><text x="46" y="34" font-family="monospace" font-size="18" fill="#e8ecdd">RealSync — AI interview platform</text>
+<text x="620" y="34" font-family="monospace" font-size="12" fill="#8a937a">Theory · Practice · Soft</text>
+<rect x="40" y="80" width="460" height="300" rx="10" fill="#10140e" stroke="#232a1e"/>
+<text x="60" y="110" font-family="monospace" font-size="12" fill="#9fbe3f">AI: Объясни trade-off SQL vs NoSQL для сессий?</text>
+<rect x="60" y="120" width="120" height="20" rx="10" fill="#dfff57"/><text x="70" y="134" font-family="monospace" font-size="11" fill="#111">✓ correct +90</text>
+<text x="60" y="165" font-family="monospace" font-size="12" fill="#e8ecdd">you: Postgres + Redis для hot-сессий…</text>
+<text x="60" y="190" font-family="monospace" font-size="12" fill="#9fbe3f">AI: Напиши handler на Go + middleware…</text>
+<rect x="60" y="200" width="420" height="110" rx="8" fill="#000"/>
+<text x="72" y="224" font-family="monospace" font-size="12" fill="#dfff57">func interviewHandler(w http.ResponseWriter,</text>
+<text x="72" y="242" font-family="monospace" font-size="12" fill="#dfff57">  r *http.Request) {` + `{` + `}</text>
+<text x="72" y="260" font-family="monospace" font-size="12" fill="#8a937a">  // Groq → OpenRouter → DeepSeek</text>
+<text x="72" y="278" font-family="monospace" font-size="12" fill="#8a937a">  // verdict: partial · topic rotated</text>
+<text x="60" y="340" font-family="monospace" font-size="11" fill="#8a937a">WS live · timer paused on AI thinking · dedup on</text>
+<rect x="520" y="80" width="240" height="300" rx="10" fill="#10140e" stroke="#dfff57"/>
+<text x="540" y="110" font-family="monospace" font-size="12" fill="#dfff57">REPORT overall 82</text>
+<text x="540" y="132" font-family="monospace" font-size="11" fill="#e8ecdd">correctness 85 · clarity 80</text>
+<text x="540" y="150" font-family="monospace" font-size="11" fill="#e8ecdd">completeness 78 · relevance 90</text>
+<text x="540" y="175" font-family="monospace" font-size="11" fill="#8a937a">resume: parsed PDF → skills</text>
+<text x="540" y="193" font-family="monospace" font-size="11" fill="#8a937a">github: fit_score 87 · Go</text>
+<text x="540" y="211" font-family="monospace" font-size="11" fill="#8a937a">hh.ru: 12 вакансий · BY</text>
+<rect x="540" y="230" width="200" height="32" rx="16" fill="#dfff57"/><text x="580" y="251" font-family="monospace" font-size="12" fill="#111">export PDF</text>
+<text x="540" y="285" font-family="monospace" font-size="11" fill="#9fbe3f">Go · FastAPI · React+TS</text>
+<text x="540" y="303" font-family="monospace" font-size="11" fill="#9fbe3f">Docker · PG16 · Redis · Kafka</text>
+<rect x="40" y="400" width="220" height="60" rx="8" fill="#10140e" stroke="#232a1e"/><text x="56" y="424" font-family="monospace" font-size="12" fill="#dfff57">12 микросервисов</text><text x="56" y="442" font-family="monospace" font-size="11" fill="#8a937a">gateway :8000 · 56 commits</text>
+<rect x="280" y="400" width="220" height="60" rx="8" fill="#10140e" stroke="#232a1e"/><text x="296" y="424" font-family="monospace" font-size="12" fill="#e8ecdd">LLM-каскад 4-tier</text><text x="296" y="442" font-family="monospace" font-size="11" fill="#8a937a">1-2с · failover · STAR</text>
+<rect x="520" y="400" width="240" height="60" rx="8" fill="#10140e" stroke="#232a1e"/><text x="536" y="424" font-family="monospace" font-size="12" fill="#e8a05c">saou_nic · MIT · 2026</text><text x="536" y="442" font-family="monospace" font-size="11" fill="#8a937a">диплом · open-source</text>
+</svg>
